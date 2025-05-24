@@ -26,6 +26,8 @@ function showMsj($msj, $extra="") {
             return "⛔ Falla interna enviando e-mail, reinténtalo!!!";
         case "error_db":
             return "⛔ Falla interna en la DB, reinténtalo!!!";
+        case "error_busqueda_db":
+            return "⛔ Falló el acceso a la DB!!!";
         case "mal_mail":
             return "⛔ Debes escribir un e-mail válido!!!";
         case "mal_password":
@@ -86,7 +88,7 @@ function moveOut() {
 
 function titulOut() {
     ?><div class="horizontal_separado">
-        <img src="icono.png" alt="logotipo" width="96" height="96">
+        <img src="icono.png" alt="logotipo" width="80" height="80">
         <h1> Tu Mercado Sena</h1>
     </div>
     <p class="subtitulo">Aquí podeís comprar / vender tus cachibaches tío/a</p>
@@ -95,7 +97,7 @@ function titulOut() {
 
 function tituloLogin() {
     ?><div class="horizontal_separado">
-        <img src="icono.png" alt="logotipo" width="96" height="96">
+        <img src="icono.png" alt="logotipo" width="80" height="80">
         <div style="flex-grow: 10;"></div>
         <div style="width: 96px; visibility: hidden;"></div>
         <div class="vertical_separado cont_fondo">
@@ -110,7 +112,7 @@ function tituloLogin() {
     </div><?php
 }
 
-function setProductoFicha($id, $is_imagen, $titulo, $descripcion, $categoria,
+function setProductoFicha($id, $is_imagen, $nombre, $descripcion, $categoria,
         $subcategoria, $uso, $precio, $disponibles) {
     ?><div class="cont_fondo">
         <div class="vertical">
@@ -126,13 +128,17 @@ function setProductoFicha($id, $is_imagen, $titulo, $descripcion, $categoria,
                 }
                 ?>
                 <div class="vertical">
-                    <p class="subp"><?php echo $titulo; ?></p>
+                    <p class="subp"><?php echo $nombre; ?></p>
                     <ul>
                         <li><?php echo $categoria; ?></li>
                         <li><?php echo $subcategoria; ?></li>
                         <li><?php echo $uso; ?></li>
                         <li>$ <?php echo $precio; ?></li>
-                        <li>- <?php echo $disponibles; ?> +</li>
+                        <li>
+                            <a class="btn_icon" href="Catalogo.php?ope=res&item=<?php echo $id; ?>">➖ </a>
+                            <?php echo $disponibles; ?>
+                            <a class="btn_icon" href="Catalogo.php?ope=sum&item=<?php echo $id; ?>"> ➕</a>
+                        </li>
                     </ul>
                     <a class="boton" style="font-size: 16px;"
                         href="EditarProducto.php?ind=<?php echo $id; ?>">Editar</a>

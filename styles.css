@@ -75,13 +75,22 @@ select, textarea {
     padding: 5px;
 }
 
+.invisible_cont {
+    /*width: 500px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+}
+
 .contenedor {
     background-color: rgb(148, 217, 226);
     padding: 1.5rem;
     margin: 1rem;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    width: 300px;
+    /*width: 300px;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,4 +200,13 @@ select, textarea {
     font-size: 1em;
     font-weight: bold;
     margin: 0px;
+}
+
+ul {
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.btn_icon {
+    text-decoration: none;
 }
